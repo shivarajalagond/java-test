@@ -1,15 +1,17 @@
 package com.h2rd.refactoring.usermanagement;
 
 import javax.xml.bind.annotation.XmlRootElement;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement
 public class User {
 
-    String name;
-    String email;
-    List<String> roles;
-
+    private String name;
+    private String email;
+    private List<String> roles = new ArrayList<>();
+    
     public String getName() {
         return name;
     }
@@ -21,7 +23,7 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
-    }
+    } 
     public List<String> getRoles() {
         return roles;
     }

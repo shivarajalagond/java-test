@@ -4,31 +4,20 @@ import java.util.ArrayList;
 
 public class UserDao {
 
-    public ArrayList<User> users;
+    public ArrayList<User> users = new ArrayList<>();
 
     public static UserDao userDao;
 
     public static UserDao getUserDao() {
-        if (userDao == null) {
-            userDao = new UserDao();
-        }
         return userDao;
     }
 
     public void saveUser(User user) {
-        if (users == null) {
-            users = new ArrayList<User>();
-        }
         users.add(user);
     }
 
     public ArrayList<User> getUsers() {
-        try {
             return users;
-        } catch (Throwable e) {
-            System.out.println("error");
-            return null;
-        }
     }
 
     public void deleteUser(User userToDelete) {
@@ -56,16 +45,12 @@ public class UserDao {
         }
     }
 
-    public User findUser(String name) {
-        try {
+    public User findUser(String name) {    
             for (User user : users) {
                 if (user.getName() == name) {
                     return user;
                 }
             }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
         return null;
     }
 }
